@@ -11,9 +11,11 @@ eight_puzzle2 = EightPuzzle((1, 0, 6, 8, 7, 5, 4, 2), (0, 1, 2, 3, 4, 5, 6, 7, 8
 n_queens = NQueensProblem(8)
 
 
+def test_depth_first_search():
+    assert depth_first_tree_search(romania_problem).solution() == ['Timisoara', 'Lugoj', 'Mehadia', 'Drobeta', 'Craiova', 'Pitesti', 'Bucharest']
+
 def test_find_min_edge():
     assert romania_problem.find_min_edge() == 70
-
 
 def test_breadth_first_tree_search():
     assert breadth_first_tree_search(
