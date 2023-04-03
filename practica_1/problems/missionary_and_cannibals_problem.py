@@ -63,6 +63,8 @@ class MoveMissionaryAction(Actions):
         new_state = CannibalAndMissionaryState(begin, end, state.change_side())
         return new_state
 
+    def __str__(self):
+        return 'MM'
 
 class MoveCannibalAction(Actions):
     def is_enable(self, state):
@@ -78,6 +80,8 @@ class MoveCannibalAction(Actions):
         new_state = CannibalAndMissionaryState(begin, end, state.change_side())
         return new_state
 
+    def __str__(self):
+        return 'MC'
 
 def departure_is_enable(state, missionaries, cannibals):
     current_missionaries = state.begin[0] - missionaries
@@ -100,6 +104,8 @@ class MoveTwoMissionaryAction(Actions):
         action = MoveMissionaryAction()
         return action.execute(state, 2)
 
+    def __str__(self):
+        return 'MTM'
 
 class MoveTwoCannibalAction(Actions):
     def is_enable(self, state):
@@ -109,6 +115,8 @@ class MoveTwoCannibalAction(Actions):
         action = MoveCannibalAction()
         return action.execute(state, 2)
 
+    def __str__(self):
+        return 'MTC'
 
 class MoveOneCannibalOneMissionaryAction(Actions):
     def is_enable(self, state):
@@ -123,3 +131,6 @@ class MoveOneCannibalOneMissionaryAction(Actions):
         begin = (missionaries_end + 1, cannibals_end + 1)
         new_state = CannibalAndMissionaryState(begin, end, state.change_side())
         return new_state
+
+    def __str__(self):
+        return 'MCM'

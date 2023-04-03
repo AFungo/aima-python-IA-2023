@@ -10,13 +10,12 @@ class MyProblem:
         """The constructor specifies the initial state, and possibly a goal
         state, if there is a unique goal. Your subclass's constructor can add
         other arguments."""
-        self.initial = initial
         self.goal = goal
         self.actions_list = action_list
-        self.initial_state = initial
+        self.initial = initial
 
     def initial_state(self):
-        return self.initial_state
+        return self.initial
 
     def actions(self, state):
         """Return the actions that can be executed in the given

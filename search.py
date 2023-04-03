@@ -919,7 +919,7 @@ def genetic_search(problem, ngen=1000, pmut=0.1, n=20):
     # NOTE: This is not tested and might not work.
     # TODO: Use this function to make Problems work with genetic_algorithm.
 
-    s = problem.initial_state
+    s = problem.initial
     states = [problem.result(s, a) for a in problem.actions(s)]
     random.shuffle(states)
     return genetic_algorithm(states[:n], problem.value, ngen, pmut)

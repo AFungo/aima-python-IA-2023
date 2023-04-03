@@ -9,7 +9,7 @@ def params():
     params['goal_state'] = CannibalAndMissionaryState((3, 3), (0, 0), Side.END)
     params['cannibals_and_missionary_problem'] = MissionariesAndCannibalsProblem(params['goal_state'])
     params['actions_list'] = params['cannibals_and_missionary_problem'].actions_list
-    params['initial_state'] = params['cannibals_and_missionary_problem'].initial_state
+    params['initial_state'] = params['cannibals_and_missionary_problem'].initial
     return params
 
 
@@ -106,7 +106,9 @@ def test_actions_list_initial_state(params):
 
 def test_breadth_first_graph_search_missionaries_and_cannibals(params):
     solution = breadth_first_graph_search(params['cannibals_and_missionary_problem']).solution()
-    assert True #solutio n == [MTC, MC, MTC, MC, MTM, MC, MTM, MCM, MTM, MC, MTC, MM, MCM]
+    solution = list(map(lambda a: a.__str__(), solution))
+    expected = ['MTC', 'MC', 'MTC', 'MC', 'MTM', 'MCM', 'MTM', 'MC', 'MTC', 'MM', 'MCM']
+    assert solution == expected
 
 
 if __name__ == '__main__':
