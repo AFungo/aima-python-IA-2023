@@ -7,14 +7,10 @@ from search import *
 @pytest.fixture
 def params():
     params = {}
-    params['actions_list'] = [MoveMissionaryAction(), MoveCannibalAction(), MoveTwoMissionaryAction(),
-                              MoveTwoCannibalAction(), MoveOneCannibalOneMissionaryAction()
-                              ]
     params['goal_state'] = CannibalAndMissionaryState((3, 3), (0, 0), Side.END)
-    params['initial_state'] = params['goal_state'].initial_state()
-    params['cannibals_and_missionary_problem'] = MyProblem(params['initial_state'], params['goal_state'],
-                                                           params['actions_list']
-                                                           )
+    params['cannibals_and_missionary_problem'] = MissionariesAndCannibalsProblem(params['goal_state'])
+    params['actions_list'] = params['cannibals_and_missionary_problem'].actions_list
+    params['initial_state'] = params['cannibals_and_missionary_problem'].initial_state
     return params
 
 

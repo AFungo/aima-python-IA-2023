@@ -6,15 +6,17 @@ class MyProblem:
     this and implement the methods actions and result, and possibly
     __init__, goal_test, and path_cost. Then you will create instances
     of your subclass and solve them with the various search functions."""
-    def __init__(self, initial, goal=None, actions_list=None):
+    def __init__(self, initial, action_list, goal=None):
         """The constructor specifies the initial state, and possibly a goal
         state, if there is a unique goal. Your subclass's constructor can add
         other arguments."""
-        if actions_list is None:
-            actions_list = []
         self.initial = initial
         self.goal = goal
-        self.actions_list = actions_list
+        self.actions_list = action_list
+        self.initial_state = initial
+
+    def initial_state(self):
+        return self.initial_state
 
     def actions(self, state):
         """Return the actions that can be executed in the given
@@ -55,9 +57,6 @@ class MyProblem:
 
 
 class State:
-    def initial_state(self):
-        raise NotImplementedError
-
     def is_goal(self):
         raise NotImplementedError
 
