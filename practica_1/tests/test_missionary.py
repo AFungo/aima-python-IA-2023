@@ -1,5 +1,4 @@
 import pytest
-from practica_1.problems.abstractproblem import *
 from practica_1.problems.missionary_and_cannibals_problem import *
 from search import *
 
@@ -107,7 +106,7 @@ def test_actions_list_initial_state(params):
 
 def test_breadth_first_graph_search_missionaries_and_cannibals(params):
     solution = breadth_first_graph_search(params['cannibals_and_missionary_problem']).solution()
-    assert True#solution == [MTC, MC, MTC, MC, MTM, MC, MTM, MCM, MTM, MC, MTC, MM, MCM]
+    assert True #solutio n == [MTC, MC, MTC, MC, MTM, MC, MTM, MCM, MTM, MC, MTC, MM, MCM]
 
 
 if __name__ == '__main__':
